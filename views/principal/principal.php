@@ -4,76 +4,106 @@ require 'views/header.php';
 
 $usuario =  $_SESSION["usuario"];
 ?>
+<div id="kt_app_content" class="app-content flex-column-fluid mt-55">
+    <div class="col-12">
+        <div class="card">
+            <div id="SECCION_TODO">
+                <div class="col-12 p-12">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-row-dashed table-striped fs-6 gy-3 dataTable no-footer" id="Tabla_Pendientes">
 
-<div class="card">
-    <div class="card-header pt-8 ">
-        <h3>Ingreso de Actividad</h3>
-    </div>
-    <div class="card ">
-    <div class="pt-3">
-        <div class="card-body">
-            <div class="col-6">
-                <h4>Tipo</h4>
-                <select class="form-select" aria-label="Default select example" id="Tipo">
-                    <option selected></option>
-                    <option value="1">Proteccion </option>
-                    <option value="2">Descuento Cliente </option>
-                    <option value="3">Spiff</option>
-                    <option value="3">Plan/Mercado</option>
-                    <option value="3">Promo</option>
-                </select>
+                            <!-- <tfoot align="center">
+                                <tr>
+                                    <th style="font-size: 16px;" class="fw-bold fs-1"></th>
+                                    <th style="font-size: 16px;" class="fw-bold fs-1"></th>
+                                    <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                                    <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                                    <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                                    <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                                    <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                                </tr>
+                            </tfoot> -->
+                        </table>
+
+                        <table id="example" class="display nowrap" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>System Architect</td>
+                                    <td>Edinburgh</td>
+                                    <td>61</td>
+                                    <td>2011-04-25</td>
+                                    <td>$320,800</td>
+                                </tr>
+                                <tr>
+                                    <td>Garrett Winters</td>
+                                    <td>Accountant</td>
+                                    <td>Tokyo</td>
+                                    <td>63</td>
+                                    <td>2011-07-25</td>
+                                    <td>$170,750</td>
+                                </tr>
+                                <tr>
+                                    <td>Ashton Cox</td>
+                                    <td>Junior Technical Author</td>
+                                    <td>San Francisco</td>
+                                    <td>66</td>
+                                    <td>2009-01-12</td>
+                                    <td>$86,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Cedric Kelly</td>
+                                    <td>Senior Javascript Developer</td>
+                                    <td>Edinburgh</td>
+                                    <td>22</td>
+                                    <td>2012-03-29</td>
+                                    <td>$433,060</td>
+                                </tr>
+                                <tr>
+                                    <td>Airi Satou</td>
+                                    <td>Accountant</td>
+                                    <td>Tokyo</td>
+                                    <td>33</td>
+                                    <td>2008-11-28</td>
+                                    <td>$162,700</td>
+                                </tr>
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+</div>
 
-            <div class="card-body">
-
-                <div class="row pt-2">
-                    <div class="col">
-                        <h4>Marca</h4>
-                        <input class="form-control form-control" placeholder=""  id="Marca">
-                    </div>
-                    <div class="col">
-                        <h4>Referencia</h4>
-                        <input class="form-control form-control" placeholder=""  id="Referencia">
-                    </div>
-                </div>
-
-                <div class="row pt-8">
-                    <div class="col">
-                        <h4>Valor</h4>
-                        <input type="number" class="form-control" placeholder="" id="Valor">
-                    </div>
-                    <div class="col">
-                        <h4 >Fecha</h4>
-                        <input type="text" class="form-control" id="Fecha" aria-describedby="emailHelp" disabled readonly>
-                    </div>
-                </div>
-
-
-                <div class="row pt-8">
-                    <div class="col">
-                        <h4>Periodo</h4>
-                        <select class="form-select" aria-label="Default select example" id="Periodo">
-                            <option selected></option>
-                            <option value="1">semestral </option>
-                            <option value="2">bimestral</option>
-                            <option value="3">trimestral</option>
-                            <option value="3">cuatrimestral</option>
-                        </select>
-                    </div>
-
-                    <div class="col">
-                        <h4>Concepto</h4>
-                        <input type="text" class="form-control" placeholder="" id="Concepto">
-                    </div>
-                </div>
-                <div class="row pt-8">
-                    <div class="col-4">
-                        <button type="button" class="btn btn-primary" id="Ingresar" onclick="grabar_datos()">Igresar</button>
-                    </div>
-                
-
-<?php require 'views/footer.php'; ?>
-<?php require 'funciones/principal_js.php'; ?>
 <script>
-
+    $(document).ready(function() {
+        $('#example').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+    });
 </script>
