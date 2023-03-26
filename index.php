@@ -29,10 +29,7 @@
     <title>Document</title>
 </head>
 
-<body>
-    <iframe id="inlineFrameExample" title="Inline Frame Example" width="100%" height="100%" src="http://186.3.23.4:82/SGO/">
-    </iframe>
-
+<body style="margin:0px;padding:0px;overflow:hidden">
+    <iframe src="http://186.3.23.4:82/SGO/" frameborder="0" style="overflow:hidden;height:150%;width:150%" height="150%" width="150%"></iframe>
 </body>
-
 </html>
