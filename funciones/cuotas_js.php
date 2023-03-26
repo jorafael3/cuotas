@@ -1,6 +1,7 @@
 <?php
 
 $url_Cargar_Datos = constant('URL') . 'principal/Cargar_Datos/';
+$url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
 
 ?>
 
@@ -14,6 +15,19 @@ $url_Cargar_Datos = constant('URL') . 'principal/Cargar_Datos/';
         style: 'currency',
         currency: 'USD',
     });
+
+    function Buscar_Producto() {
+        let Codigo = $("#CU_CODIGO").val();
+
+        let param = {
+            codigo: Codigo
+        }
+        AjaxSendReceiveData(url_Cargar_Datos, [], function(x) {
+
+            console.log('x: ', x);
+
+        });
+    }
 
     function Cargar_Datos() {
 

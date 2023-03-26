@@ -12,6 +12,29 @@ class principalmodel extends Model
         parent::__construct();
     }
 
+    function Buscar_Producto($param)
+    {
+        try {
+            $codigo = $param["codigo"];
+            $query = $this->db->connect_dobra()->prepare('{CALL WEB_Select_Productos_Cartimex_Like (?)}');
+            $query->bindParam(1, $codigo, PDO::PARAM_STR);
+            if ($query->execute()) {
+                $result = $query->fetchAll(PDO::FETCH_ASSOC);
+                echo json_encode($result);
+                exit();
+            } else {
+                $err = $query->errorInfo();
+                echo json_encode($err);
+                exit();
+            }
+        } catch (PDOException $e) {
+
+            $e = $e->getMessage();
+            echo json_encode($e);
+            exit();
+        }
+    }
+    
     function Cargar_Datos($parametros)
     {
         try {

@@ -14,7 +14,35 @@ require 'views/header.php';
             </div>
         </div>
         <div class="card-body">
-            x <div class="table-responsive">
+            <div class="col-lg-12 row">
+
+                <div class="col-lg-6 ">
+                    <h1>Buscar Producto</h1>
+
+                    <label class="form-label fs-6 fw-bolder text-gray-700 mb-3">Nombre / Codigo del producto</label>
+                    <!--begin::Input group-->
+                    <div class="mb-5">
+                        <!-- <input type="text" class="form-control form-control-solid" placeholder="Cedula" /> -->
+                        <div class="input-group mb-0">
+
+                            <input id="CU_CODIGO" type="text" class="form-control form-control-solid" placeholder="cedula / nombre" aria-label="cedula / nombre del cliente" aria-describedby="basic-addon2">
+
+                            <div class="input-group-append">
+                                <button onclick="Buscar_Producto()" class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                            </div>
+
+                        </div>
+                        <div id="CLI_COINCIDENCIAS" class="input-group mb-0 pt-3 d-none">
+                            <h6 id="CLI_COINCIDENCIAS_TEXT" class="text-danger"></h6>
+                            <select id="CLI_SEL_SUG" class=" form-select form-select-solid" placeholder="cedula / nombre">
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="table-responsive">
                 <table class="table align-middle table-row-dashed table-hover fs-6 gy-3 dataTable no-footer" id="Tabla_Deudas">
                     <!--begin::Table head-->
                     <!-- <thead>
@@ -46,5 +74,5 @@ require 'views/header.php';
 <?php require 'funciones/cuotas_js.php'; ?>
 
 <script>
-    
+
 </script>

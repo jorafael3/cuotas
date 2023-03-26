@@ -16,11 +16,17 @@ class Principal extends Controller
         $this->view->render('principal/nuevo');
     }
 
-
+    
     function Cargar_Datos()
     {
         $array = json_decode(file_get_contents("php://input"), true);
         $Ventas =  $this->model->Cargar_Datos($array);
+        //$this->CrecimientoCategoriasIndex();
+    }
+    function Buscar_Producto()
+    {
+        $array = json_decode(file_get_contents("php://input"), true);
+        $Ventas =  $this->model->Buscar_Producto($array);
         //$this->CrecimientoCategoriasIndex();
     }
   
