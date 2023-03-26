@@ -1,4 +1,5 @@
 <?php
+phpinfo();
 
 // $DB_HOST = "10.5.1.3";
 // $DB_USER = "jairo";
@@ -13,14 +14,14 @@
 //     echo "No se ha podido conectar a MySQL: " . mysqli_connect_error();
 // }
 
-$sql_serverName = "tcp:10.5.1.3,1433";
-$sql_database = "CARTIMEX";
-$sql_user = "mike";
-$sql_pwd = "Princes@";
+// $sql_serverName = "tcp:10.5.1.3,1433";
+// $sql_database = "CARTIMEX";
+// $sql_user = "mike";
+// $sql_pwd = "Princes@";
 
-try{
-    $pdo = new PDO("sqlsrv:server=$sql_serverName ; Database=$sql_database", $sql_user, $sql_pwd);
-} catch (PDOException $e){
-  die('Connected failed:'.$e-> getMessage());
+// try{
+//     $pdo = new PDO("sqlsrv:server=$sql_serverName ; Database=$sql_database", $sql_user, $sql_pwd);
+// } catch (PDOException $e){
+//   die('Connected failed:'.$e-> getMessage());
 }
 
