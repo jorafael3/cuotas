@@ -16,8 +16,10 @@ class principalmodel extends Model
     {
         try {
             $codigo = $param["codigo"];
-            $query = $this->db->connect_dobra()->prepare('{CALL WEB_Select_Productos_Cartimex_Like (?)}');
+            $sucursal = "";
+            $query = $this->db->connect_dobra()->prepare('{CALL WEB_Select_Productos_Cartimex_Like (?,?)}');
             $query->bindParam(1, $codigo, PDO::PARAM_STR);
+            $query->bindParam(2, $sucursal, PDO::PARAM_STR);
             if ($query->execute()) {
                 $result = $query->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($result);
@@ -34,7 +36,7 @@ class principalmodel extends Model
             exit();
         }
     }
-    
+
     function Cargar_Datos($parametros)
     {
         try {
