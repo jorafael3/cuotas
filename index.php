@@ -14,4 +14,6 @@ $nombre = 'l3250';
 $sql = "WEB_Select_Producto '" . $nombre . "' ";
 $result = mssql_query(utf8_decode($sql));
 // echo 'Registros encontrados: ' . mssql_num_rows($result) . '<br>';
-print_r(mssql_fetch_array($result));
+echo "<pre>";
+var_dump(mssql_fetch_array($result));
+echo "</pre>";
