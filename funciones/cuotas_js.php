@@ -23,7 +23,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
         let param = {
             codigo: Codigo
         }
-        AjaxSendReceiveData(url_Buscar_Producto, [], function(x) {
+        AjaxSendReceiveData(url_Buscar_Producto, param, function(x) {
 
             console.log('x: ', x);
 
