@@ -63,7 +63,32 @@ require 'views/header.php';
         </div>
     </div>
 </div>
+<div class="modal fade" id="kt_modal_Productos" tabindex="-1" style="display: none;" aria-hidden="true">
+    <!--begin::Modal dialog-->
+    <div class="modal-dialog modal-dialog-centered mw-750px" data-select2-id="select2-data-351-tkl4">
+        <!--begin::Modal content-->
+        <div class="modal-content">
+            <!--begin::Form-->
+            <div class="form fv-plugins-bootstrap5 fv-plugins-framework" action="#" id="kt_modal_new_address_form">
+                <!--begin::Modal header-->
+                <div class="modal-header" id="kt_modal_new_address_header">
+                    <h2>Lista de Proveedores</h2>
+                </div>
+                <div class="modal-body py-10 px-lg-17" data-select2-id="select2-data-350-hr16">
+                    <table class="table align-middle table-row-dashed table-striped fs-6 gy-3 dataTable no-footer" id="Tabla_Proveedores">
+                    </table>
+                </div>
 
+            </div>
+            <!--end::Form-->
+            <div class="modal-footer flex-center">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>

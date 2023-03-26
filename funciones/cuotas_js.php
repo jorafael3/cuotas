@@ -24,10 +24,72 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             codigo: Codigo
         }
         AjaxSendReceiveData(url_Buscar_Producto, param, function(x) {
-
             console.log('x: ', x);
+            if (x.length > 0) {
+                $("#kt_modal_Productos").modal("show");
+                Tabla_productos(x);
+            }
 
         });
+    }
+
+    function Tabla_productos(datos) {
+        if ($.fn.dataTable.isDataTable('#Tabla_Proveedores')) {
+            $('#Tabla_Proveedores').DataTable().destroy();
+            $('#Tabla_Proveedores').empty();
+        }
+        // $("#Tabla_Pendientes").addClass("table align-middle table-row-dashed fs-6 gy-3 dataTable no-footer");
+        var tabla = $('#Tabla_Proveedores').DataTable({
+            destroy: true,
+            data: datos,
+            dom: 'frtip',
+            scrollY: '50vh',
+            scrollCollapse: true,
+            paging: false,
+            order: [
+                [0, "desc"]
+            ],
+            columns: [{
+                    data: "Codigo",
+                    title: "Codigo",
+                }, {
+                    data: "Producto",
+                    title: "Producto"
+                }, {
+                    data: "Precio",
+                    title: "Precio"
+                }, {
+                    data: "Stock",
+                    title: "Stock"
+                },
+                {
+                    data: null,
+                    title: "Agregar",
+                    className: "btn_subir",
+                    defaultContent: `
+                    <button type="button" class=" btn_subir btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px" data-kt-table-widget-4="expand_row">
+                    <i class="bi bi-plus-square-fill fs-2"></i>
+                    </button>
+                    `,
+                    orderable: false,
+                    width: 20
+                },
+
+            ],
+            "createdRow": function(row, data, index) {
+
+                $('td', row).eq(1).addClass("text-gray-600 fw-bolder text-hover-primary");
+                $('td', row).eq(2).addClass("text-gray-600 fw-bolder text-hover-primary");
+                $('td', row).eq(3).addClass("text-gray-600 fw-bolder text-hover-primary");
+                $('td', row).eq(4).addClass("text-gray-800 fw-bolder bg-light-warning");
+                $('td', row).eq(5).html(data["texto"]);
+
+            },
+        });
+
+        setTimeout(function() {
+            $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();
+        }, 1000);
     }
 
     function Cargar_Datos() {
@@ -38,7 +100,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
 
         });
     }
-    Cargar_Datos();
+    // Cargar_Datos();
 
     function Tabla_Cargas(datos) {
         if ($.fn.dataTable.isDataTable('#Tabla_Cargas')) {
