@@ -23,5 +23,5 @@ phpinfo();
 //     $pdo = new PDO("sqlsrv:server=$sql_serverName ; Database=$sql_database", $sql_user, $sql_pwd);
 // } catch (PDOException $e){
 //   die('Connected failed:'.$e-> getMessage());
-}
+// }
 
