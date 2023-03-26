@@ -14,48 +14,24 @@ require 'views/header.php';
             </div>
         </div>
         <div class="card-body">
-
-            <table id="example" class="display nowrap" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011-04-25</td>
-                        <td>$320,800</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                        <td>2011-07-25</td>
-                        <td>$170,750</td>
-                    </tr>
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                    </tr>
-                </tfoot>
-            </table>
+            x <div class="table-responsive">
+                <table class="table align-middle table-row-dashed table-hover fs-6 gy-3 dataTable no-footer" id="Tabla_Deudas">
+                    <!--begin::Table head-->
+                    <!-- <thead>
+                            <tr class="text-start text-gray-400 fw-bold fs-5 text-uppercase gs-0">
+                                <th class="min-w-100px sorting_disabled" rowspan="1" colspan="1" style="width: 350px;"></th>
+                                <th class="min-w-100px sorting_disabled" rowspan="1" colspan="1" style="width: 150px;"></th>
+                                <th class=" min-w-125px sorting_disabled" rowspan="1" colspan="1" style="width: 150px;"></th>
+                                <th class=" min-w-100px sorting_disabled" rowspan="1" colspan="1" style="width: 150px;"></th>
+                                <th class=" min-w-100px sorting_disabled" rowspan="1" colspan="1" style="width: 50.5px;"></th>
+                                <th class=" min-w-50px sorting_disabled" rowspan="1" colspan="1" style="width: 150px;"></th>
+                                <th class=" sorting_disabled" rowspan="1" colspan="1" style="width: 25.8125px;"></th>
+                                <th class=" sorting_disabled" rowspan="1" colspan="1" style="width: 25.8125px;"></th>
+                            </tr>
+                            <!--end::Table row-->
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -67,15 +43,8 @@ require 'views/header.php';
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
 <?php require 'views/footer.php'; ?>
-<?php require 'funciones/minimos_js.php'; ?>
+<?php require 'funciones/cuotas_js.php'; ?>
 
 <script>
-    $(document).ready(function() {
-        $('#example').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
-        });
-    });
+    
 </script>
