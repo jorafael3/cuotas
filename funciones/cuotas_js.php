@@ -9,6 +9,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
     // Cambiar las URL por la nueva del archivo //    
 
     var url_Cargar_Datos = '<?php echo $url_Cargar_Datos ?>';
+    var url_Buscar_Producto = '<?php echo $url_Buscar_Producto ?>';
 
 
     const formatter = new Intl.NumberFormat('en-US', {
@@ -22,7 +23,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
         let param = {
             codigo: Codigo
         }
-        AjaxSendReceiveData(url_Cargar_Datos, [], function(x) {
+        AjaxSendReceiveData(url_Buscar_Producto, [], function(x) {
 
             console.log('x: ', x);
 
