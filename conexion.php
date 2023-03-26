@@ -1,6 +1,6 @@
 <?php
 
-$link = mssql_connect('10.5.1.3:1433', 'jairo', 'qwertys3gur0');
+$link = mssql_connect('10.5.1.3', 'mike', 'Princes@');
 
 if (!$link) {
     echo ('Imposible conectar con el DOBRA!');
