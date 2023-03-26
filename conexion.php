@@ -1,8 +1,8 @@
 <?php
 
 $DB_HOST = "10.5.1.3";
-$DB_USER = "jairo";
-$DB_PASS = "qwertys3gur0";
+$DB_USER = "mike";
+$DB_PASS = "Princes@";
 $DB_NAME = "CARTIMEX";
 
 $min_link2pay = 800;
