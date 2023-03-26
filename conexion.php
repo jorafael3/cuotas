@@ -1,9 +1,9 @@
 <?php
 
-$DB_HOST = "10.5.1.245";
-$DB_USER = "root";
-$DB_PASS = "Bruno2001";
-$DB_NAME = "sisco";
+$DB_HOST = "10.5.1.3";
+$DB_USER = "jairo";
+$DB_PASS = "qwertys3gur0";
+$DB_NAME = "CARTIMEX";
 
 $min_link2pay = 800;
 
