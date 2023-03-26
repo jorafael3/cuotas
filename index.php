@@ -1,9 +1,9 @@
 <?php
 
 
-// require("conexion.php");
+require("conexion.php");
 
-// $nombre = 'l3250';
+$nombre = 'l3250';
 // $sql = "WEB_Select_Productos_Cartimex_Like '".strtoupper($nombre)."', '' ";
 // $result = mssql_query(utf8_decode($sql));
 // // echo 'Registros encontrados: ' . mssql_num_rows($result) . '<br>';
@@ -11,12 +11,12 @@
 // print_r(mssql_fetch_array($result));
 
 
-// $sql = "WEB_Select_Producto_2 '" . $nombre . "' ";
-// $result = mssql_query(utf8_decode($sql));
-// echo 'Registros encontrados: ' . mssql_num_rows($result) . '<br>';
-// echo "<pre>";
-// var_dump(mssql_fetch_array($result));
-// echo "</pre>";
+$sql = "WEB_Select_Producto_2 '" . $nombre . "' ";
+$result = mssql_query(utf8_decode($sql));
+echo 'Registros encontrados: ' . mssql_num_rows($result) . '<br>';
+echo "<pre>";
+var_dump(mssql_fetch_array($result));
+echo "</pre>";
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <iframe id="inlineFrameExample" title="Inline Frame Example" width="300" height="200" src="186.3.23.4:82/SGO/">
+    <iframe id="inlineFrameExample" title="Inline Frame Example" width="300" height="200" src="https:186.3.23.4:82/SGO/">
     </iframe>
 
 </body>
