@@ -30,6 +30,9 @@
 </head>
 
 <body style="margin:0px;padding:0px;overflow:hidden">
-    <iframe src="http://186.3.23.4:82/SGO/" frameborder="0" style="overflow:hidden;height:150%;width:150%" height="150%" width="150%"></iframe>
+
+    <iframe style="width:100%; height:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" src="http://186.3.23.4:82/SGO/" frameborder="0" height="100%" width="100%"></iframe>
+
 </body>
+
 </html>
