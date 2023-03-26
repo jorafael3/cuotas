@@ -1,7 +1,3 @@
-<?php
-require_once('../boardcartimex2.php');
-
-?>
 <!DOCTYPE html>
 
 <html lang="en">

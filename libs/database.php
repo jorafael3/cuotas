@@ -46,8 +46,8 @@ class Database{
 
         }
     }
-    
-    function connect_dobra_Prueba(){
+
+    function connect_dobra_Computron(){
         try{
             //$connection = "sqlsrv:host=".$this->host.";dbname=".$this->db.";charset=".$this->charset;
             if($this->pdo){
@@ -55,7 +55,7 @@ class Database{
             }else{
 
                 try{
-                    $this->pdo = new PDO("sqlsrv:Server=10.5.1.86;Database=COMPUTRONSA",'jalvarado','jorge123'); 
+                    $this->pdo = new PDO("sqlsrv:Server=10.5.1.86;Database=COMPUTRONSA",$this->user,$this->password); 
                     $options =[
                         PDO::ATTR_ERRMODE       =>PDO::ERRMODE_EXCEPTION,
                         PDO::ATTR_EMULATE_PREPARES  =>true,

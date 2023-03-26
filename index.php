@@ -8,6 +8,7 @@ require_once "config/config.php";
 include_once 'includes/user.php';
 include_once 'includes/user_session.php';
 
+// require_once('../boardcomputronsa2.php');
 
 
 $userSession = new User_Session();
