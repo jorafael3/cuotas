@@ -1,7 +1,7 @@
 <?php
 
 
-class principal extends Controller
+class Principal extends Controller
 {
 
     function __construct()
@@ -16,17 +16,25 @@ class principal extends Controller
         $this->view->render('principal/principal');
     }
 
-
-    function Guardar_datos()
+    
+    function Cargar_Bancos()
     {
         $array = json_decode(file_get_contents("php://input"), true);
-        $Ventas =  $this->model-> Guardar_datos($array);
+        $Ventas =  $this->model->Consultar_Bancos($array);
         //$this->CrecimientoCategoriasIndex();
     }
-    function Guardar_D()
+
+    function Cargar_Datos()
     {
         $array = json_decode(file_get_contents("php://input"), true);
-        $Ventas =  $this->model-> Guardar_D($array);
+        $Ventas =  $this->model->Cargar_Datos($array);
+        //$this->CrecimientoCategoriasIndex();
+    }
+
+    function Guardar_Datos()
+    {
+        $array = json_decode(file_get_contents("php://input"), true);
+        $Ventas =  $this->model->Guardar_Datos($array);
         //$this->CrecimientoCategoriasIndex();
     }
 
