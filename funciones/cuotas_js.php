@@ -289,6 +289,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
                 $(api.column(5).footer()).html(formatter.format(c12));
                 $(api.column(6).footer()).html(formatter.format(c18));
                 $(api.column(7).footer()).html(formatter.format(c24));
+                $(api.column(8).footer()).html("");
                 //$(api.column(3).footer()).html(format(wedTotal));
             }
         });
