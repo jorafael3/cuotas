@@ -18,6 +18,13 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
         currency: 'USD',
     });
 
+    $('#CU_CODIGO').on('keypress', function(e) {
+        if (e.which === 13) {
+
+            Buscar_Producto();
+        }
+    });
+
     function Buscar_Producto() {
         let Codigo = $("#CU_CODIGO").val();
 
@@ -99,7 +106,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
         }, 1000);
         $('#kt_modal_Productos').on('shown.bs.modal', function() {
             // $('#retiro').focus();
-            table.columns.adjust();
+            tabla.columns.adjust();
         })
         $('#Tabla_Proveedores tbody').on('click', 'td.btn_subir', function(e) {
             e.preventDefault();
