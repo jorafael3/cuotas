@@ -20,12 +20,13 @@ require 'views/header.php';
                     <h1>Buscar Producto</h1>
 
                     <label class="form-label fs-6 fw-bolder text-gray-700 mb-3">Nombre / Codigo del producto</label>
+                    <h6>( Puede buscar mas de una palabra utilizando el % )</h6>
                     <!--begin::Input group-->
                     <div class="mb-5">
                         <!-- <input type="text" class="form-control form-control-solid" placeholder="Cedula" /> -->
                         <div class="input-group mb-0">
 
-                            <input id="CU_CODIGO" type="text" class="form-control form-control-solid" placeholder="cedula / nombre" aria-label="cedula / nombre del cliente" aria-describedby="basic-addon2">
+                            <input id="CU_CODIGO" type="text" class="form-control form-control-solid" placeholder="codigo / nombre" aria-label="cedula / nombre del cliente" aria-describedby="basic-addon2">
 
                             <div class="input-group-append">
                                 <button onclick="$('#CU_CODIGO').val('')" class="btn btn-light" type="button"><i class="bi bi-trash-fill"></i></button>
