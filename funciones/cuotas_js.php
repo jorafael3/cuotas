@@ -201,7 +201,19 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
                     data: "C24",
                     title: "C24",
                     render: $.fn.dataTable.render.number(',', '.', 2, "$"),
-                }
+                },
+                {
+                    data: null,
+                    title: "Borrar",
+                    className: "btn_borrar",
+                    defaultContent: `
+                    <button type="button" class=" btn_borrar btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px" data-kt-table-widget-4="expand_row">
+                    <i class="bi bi-trash-fill fs-2"></i>
+                    </button>
+                    `,
+                    orderable: false,
+                    width: 20
+                },
 
             ],
             "createdRow": function(row, data, index) {
@@ -284,7 +296,14 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
         setTimeout(function() {
             $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();
         }, 1000);
-
+        $('#Tabla_Deudas tbody').on('click', 'td.btn_borrar', function(e) {
+            e.preventDefault();
+            var data = tabla.row(this).data();
+            tabla
+                .row($(this).parents('tr'))
+                .remove()
+                .draw();
+        });
 
     }
 
