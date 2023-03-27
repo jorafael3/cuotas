@@ -40,24 +40,22 @@ require 'views/header.php';
                         </div>
                     </div>
                 </div>
-               
+
             </div>
             <div class="table-responsive">
-                <table class="table align-middle table-row-dashed table-hover fs-6 gy-3 dataTable no-footer" id="Tabla_Deudas">
-                    <!--begin::Table head-->
-                    <!-- <thead>
-                            <tr class="text-start text-gray-400 fw-bold fs-5 text-uppercase gs-0">
-                                <th class="min-w-100px sorting_disabled" rowspan="1" colspan="1" style="width: 350px;"></th>
-                                <th class="min-w-100px sorting_disabled" rowspan="1" colspan="1" style="width: 150px;"></th>
-                                <th class=" min-w-125px sorting_disabled" rowspan="1" colspan="1" style="width: 150px;"></th>
-                                <th class=" min-w-100px sorting_disabled" rowspan="1" colspan="1" style="width: 150px;"></th>
-                                <th class=" min-w-100px sorting_disabled" rowspan="1" colspan="1" style="width: 50.5px;"></th>
-                                <th class=" min-w-50px sorting_disabled" rowspan="1" colspan="1" style="width: 150px;"></th>
-                                <th class=" sorting_disabled" rowspan="1" colspan="1" style="width: 25.8125px;"></th>
-                                <th class=" sorting_disabled" rowspan="1" colspan="1" style="width: 25.8125px;"></th>
-                            </tr>
-                            <!--end::Table row-->
-                    </thead>
+                <table class="table align-middle table-row-dashed table-striped fs-6 gy-3 dataTable no-footer" id="Tabla_Deudas">
+                    <tfoot align="center">
+                        <tr>
+                            <th style="font-size: 16px;" class="fw-bold fs-1"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-1"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>

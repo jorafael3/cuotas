@@ -132,39 +132,48 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             order: [
                 [0, "desc"]
             ],
-            buttons: ['print','excel'],
+            buttons: ['print', 'excel', {
+                text: `<span class"fw-bolder">Limpiar Tabla </span> <i class="bi bi-arrow-clockwise"></i>`,
+                className: 'btn btn-light-success',
+                action: function(e, dt, node, config) {
+                    ARRAY_LISTA_PRODUCTOS = [];
+                    Tabla_LISTA(ARRAY_LISTA_PRODUCTOS);
+                }
+            }],
             columns: [{
                     data: "Producto",
                     title: "Producto",
                 }, {
                     data: "PrecioFinal",
-                    title: "PrecioFinal"
+                    title: "PrecioFinal",
+                    render: $.fn.dataTable.render.number(',', '.', 2, "$"),
+
                 }, {
                     data: "C3",
                     title: "C3",
                     render: $.fn.dataTable.render.number(',', '.', 2, "$"),
 
-                },{
+                }, {
                     data: "C6",
                     title: "C6",
                     render: $.fn.dataTable.render.number(',', '.', 2, "$"),
 
-                },{
+                }, {
                     data: "C9",
                     title: "C9",
                     render: $.fn.dataTable.render.number(',', '.', 2, "$"),
 
-                },{
+                }, {
                     data: "C12",
                     title: "C12",
                     render: $.fn.dataTable.render.number(',', '.', 2, "$"),
 
-                },{
+                }, {
                     data: "C18",
                     title: "C18",
                     render: $.fn.dataTable.render.number(',', '.', 2, "$"),
 
-                },{
+                }, {
                     data: "C24",
                     title: "C24",
                     render: $.fn.dataTable.render.number(',', '.', 2, "$"),
@@ -184,30 +193,68 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
 
             },
 
-            // "footerCallback": function(row, data, start, end, display) {
-            //     var api = this.api(),
-            //         data;
-            //     var intVal = function(i) {
-            //         return typeof i === 'string' ?
-            //             i.replace(/[\$,]/g, '') * 1 :
-            //             typeof i === 'number' ?
-            //             i : 0;
-            //     };
-            //     var Total = api
-            //         .column(4)
-            //         .data()
-            //         .reduce(function(a, b) {
-            //             return (intVal(a) + intVal(b));
-            //         }, 0);
-            //     let formatter = new Intl.NumberFormat('en-US', {
-            //         style: 'currency',
-            //         currency: 'USD',
-            //     });
+            "footerCallback": function(row, data, start, end, display) {
+                var api = this.api(),
+                    data;
+                var intVal = function(i) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '') * 1 :
+                        typeof i === 'number' ?
+                        i : 0;
+                };
+                var pf = api
+                    .column(1)
+                    .data()
+                    .reduce(function(a, b) {
+                        return (intVal(a) + intVal(b));
+                    }, 0);
+                var c3 = api
+                    .column(2)
+                    .data()
+                    .reduce(function(a, b) {
+                        return (intVal(a) + intVal(b));
+                    }, 0);
 
-            //     $(api.column(0).footer()).html('Total');
-            //     $(api.column(4).footer()).html(formatter.format(Total));
-            //     //$(api.column(3).footer()).html(format(wedTotal));
-            // }
+                var c6 = api
+                    .column(3)
+                    .data()
+                    .reduce(function(a, b) {
+                        return (intVal(a) + intVal(b));
+                    }, 0);
+                var c9 = api
+                    .column(4)
+                    .data()
+                    .reduce(function(a, b) {
+                        return (intVal(a) + intVal(b));
+                    }, 0);
+                var c12 = api
+                    .column(5)
+                    .data()
+                    .reduce(function(a, b) {
+                        return (intVal(a) + intVal(b));
+                    }, 0);
+                var c18 = api
+                    .column(6)
+                    .data()
+                    .reduce(function(a, b) {
+                        return (intVal(a) + intVal(b));
+                    }, 0);
+                var c24 = api
+                    .column(7)
+                    .data()
+                    .reduce(function(a, b) {
+                        return (intVal(a) + intVal(b));
+                    }, 0);
+                $(api.column(0).footer()).html('Total');
+                $(api.column(4).footer()).html(formatter.format(pf));
+                $(api.column(4).footer()).html(formatter.format(c3));
+                $(api.column(4).footer()).html(formatter.format(c6));
+                $(api.column(4).footer()).html(formatter.format(c9));
+                $(api.column(4).footer()).html(formatter.format(c12));
+                $(api.column(4).footer()).html(formatter.format(c18));
+                $(api.column(4).footer()).html(formatter.format(c24));
+                //$(api.column(3).footer()).html(format(wedTotal));
+            }
         }).clear().rows.add(datos).draw();
 
         setTimeout(function() {
