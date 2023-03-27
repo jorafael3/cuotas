@@ -28,6 +28,9 @@ require 'views/header.php';
                             <input id="CU_CODIGO" type="text" class="form-control form-control-solid" placeholder="cedula / nombre" aria-label="cedula / nombre del cliente" aria-describedby="basic-addon2">
 
                             <div class="input-group-append">
+                                <button onclick="$('#CU_CODIGO').val('')" class="btn btn-primary" type="button"><i class="bi bi-trash-fill"></i></button>
+                            </div>
+                            <div class="input-group-append">
                                 <button onclick="Buscar_Producto()" class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
                             </div>
 
