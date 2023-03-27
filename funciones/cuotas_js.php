@@ -28,6 +28,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             console.log('x: ', x);
             if (x.length > 0) {
                 $("#kt_modal_Productos").modal("show");
+
                 Tabla_productos(x);
             }
 
@@ -56,7 +57,8 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
                     title: "Codigo",
                 }, {
                     data: "Producto",
-                    title: "Producto"
+                    title: "Producto",
+                    width: 200
                 }, {
                     data: "Precio",
                     title: "Precio",
@@ -95,7 +97,10 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
         setTimeout(function() {
             $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();
         }, 1000);
-
+        $('#kt_modal_Productos').on('shown.bs.modal', function() {
+            // $('#retiro').focus();
+            table.columns.adjust();
+        })
         $('#Tabla_Proveedores tbody').on('click', 'td.btn_subir', function(e) {
             e.preventDefault();
             var data = tabla.row(this).data();
