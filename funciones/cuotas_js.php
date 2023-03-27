@@ -101,7 +101,6 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             console.log('data: ', data);
             ARRAY_LISTA_PRODUCTOS.push(data);
             console.log('ARRAY_LISTA_PRODUCTOS: ', ARRAY_LISTA_PRODUCTOS);
-            Footer();
             Tabla_LISTA(ARRAY_LISTA_PRODUCTOS);
         });
     }
@@ -122,6 +121,8 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             $('#Tabla_Deudas').DataTable().destroy();
             $('#Tabla_Deudas').empty();
         }
+        Footer();
+
         // $("#Tabla_Pendientes").addClass("table align-middle table-row-dashed fs-6 gy-3 dataTable no-footer");
         var tabla = $('#Tabla_Deudas').DataTable({
             destroy: true,
