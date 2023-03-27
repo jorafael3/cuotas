@@ -10,6 +10,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
 
     var url_Cargar_Datos = '<?php echo $url_Cargar_Datos ?>';
     var url_Buscar_Producto = '<?php echo $url_Buscar_Producto ?>';
+    var ARRAY_LISTA_PRODUCTOS = [];
 
 
     const formatter = new Intl.NumberFormat('en-US', {
@@ -57,10 +58,12 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
                     title: "Producto"
                 }, {
                     data: "Precio",
-                    title: "Precio"
+                    title: "Precio",
+                    render: $.fn.dataTable.render.number(',', '.', 2, "$"),
                 }, {
                     data: "Stock",
-                    title: "Stock"
+                    title: "Stock",
+                    render: $.fn.dataTable.render.number(',', '.', 0, ""),
                 },
                 {
                     data: null,
@@ -78,9 +81,10 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             ],
             "createdRow": function(row, data, index) {
 
-                $('td', row).eq(1).addClass("text-gray-600 fw-bolder text-hover-primary");
-                $('td', row).eq(2).addClass("text-gray-600 fw-bolder text-hover-primary");
-                $('td', row).eq(3).addClass("text-gray-600 fw-bolder text-hover-primary");
+                $('td', row).eq(0).addClass("text-gray-600 fw-bolder");
+                $('td', row).eq(1).addClass("text-gray-600 fw-bolder");
+                $('td', row).eq(2).addClass("text-gray-700 fw-bolder bg-light-primary");
+                $('td', row).eq(3).addClass("text-gray-600 fw-bolder");
                 $('td', row).eq(4).addClass("text-gray-800 fw-bolder bg-light-warning");
                 $('td', row).eq(5).html(data["texto"]);
 
@@ -90,6 +94,15 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
         setTimeout(function() {
             $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();
         }, 1000);
+
+        $('#Tabla_Proveedores tbody').on('click', 'td.btn_subir', function(e) {
+            e.preventDefault();
+            var data = tabla.row(this).data();
+            console.log('data: ', data);
+            ARRAY_LISTA_PRODUCTOS.append(data);
+            console.log('ARRAY_LISTA_PRODUCTOS: ', ARRAY_LISTA_PRODUCTOS);
+            Tabla_LISTA(ARRAY_LISTA_PRODUCTOS);
+        });
     }
 
     function Cargar_Datos() {
@@ -102,13 +115,14 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
     }
     // Cargar_Datos();
 
-    function Tabla_Cargas(datos) {
-        if ($.fn.dataTable.isDataTable('#Tabla_Cargas')) {
-            $('#Tabla_Cargas').DataTable().destroy();
-            $('#Tabla_Cargas').empty();
+    function Tabla_LISTA(datos) {
+        $('#Tabla_Deudas').empty();
+        if ($.fn.dataTable.isDataTable('#Tabla_Deudas')) {
+            $('#Tabla_Deudas').DataTable().destroy();
+            $('#Tabla_Deudas').empty();
         }
         // $("#Tabla_Pendientes").addClass("table align-middle table-row-dashed fs-6 gy-3 dataTable no-footer");
-        var tabla = $('#Tabla_Cargas').DataTable({
+        var tabla = $('#Tabla_Deudas').DataTable({
             destroy: true,
             data: datos,
             dom: 'Bfrtip',
@@ -118,61 +132,55 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             order: [
                 [0, "desc"]
             ],
-            buttons: [{
-                text: 'Refrescar',
-                action: function() {
-                    Cargar_Datos()
-                }
-            }, {
-                text: `<span class"fw-bolder">Nuevo <i class="bi bi-plus-square-fill fs-2"></i></span>`,
-                className: 'btn btn-success',
-                action: function() {
-                    $("#MODAL_NUEVO").modal("show");
-                    $("#N_PROVEEDOR").val("");
-                    $("#N_DESCRIPCION").val("");
-                }
-            }],
+            buttons: ['print','excel'],
             columns: [{
-                    data: "Fecha_Creado",
-                    title: "fecha_creado",
-                    render: function(data) {
-                        return moment(data).format("YYYY-MM-DD hh:mm:ss")
-                    }
+                    data: "Producto",
+                    title: "Producto",
                 }, {
-                    data: "proveedor",
-                    title: "Proveedor"
+                    data: "PrecioFinal",
+                    title: "PrecioFinal"
                 }, {
-                    data: "descripcion",
-                    title: "descripcion"
-                },
-                {
-                    data: null,
-                    title: "Agregar",
-                    className: "btn_subir",
-                    defaultContent: `
-                    <button type="button" class=" btn_subir btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px" data-kt-table-widget-4="expand_row">
-                    <i class="bi bi-plus-square-fill fs-2"></i>
-                    </button>
-                    `,
-                    orderable: false,
-                    width: 20
-                },
+                    data: "C3",
+                    title: "C3",
+                    render: $.fn.dataTable.render.number(',', '.', 2, "$"),
+
+                },{
+                    data: "C6",
+                    title: "C6",
+                    render: $.fn.dataTable.render.number(',', '.', 2, "$"),
+
+                },{
+                    data: "C9",
+                    title: "C9",
+                    render: $.fn.dataTable.render.number(',', '.', 2, "$"),
+
+                },{
+                    data: "C12",
+                    title: "C12",
+                    render: $.fn.dataTable.render.number(',', '.', 2, "$"),
+
+                },{
+                    data: "C18",
+                    title: "C18",
+                    render: $.fn.dataTable.render.number(',', '.', 2, "$"),
+
+                },{
+                    data: "C24",
+                    title: "C24",
+                    render: $.fn.dataTable.render.number(',', '.', 2, "$"),
+                }
 
             ],
             "createdRow": function(row, data, index) {
 
-                let fecha = `
-                    <div class="d-flex justify-content-start flex-column">
-                        <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">` + moment(data["Fecha_Creado"]).format("YYYY-MM-DD") + `</a>
-                        <span class="text-gray-600 fw-semibold d-block fs-7">` + moment(data["Fecha_Creado"]).format("hh:mm") + `</span>
-                    </div>
-                `;
-                $('td', row).eq(0).html(fecha);
-                $('td', row).eq(1).addClass("text-gray-600 fw-bolder text-hover-primary");
-                $('td', row).eq(2).addClass("text-gray-600 fw-bolder text-hover-primary");
-                $('td', row).eq(3).addClass("text-gray-600 fw-bolder text-hover-primary");
-                $('td', row).eq(4).addClass("text-gray-800 fw-bolder bg-light-warning");
-                $('td', row).eq(5).html(data["texto"]);
+                $('td', row).eq(0).addClass("text-gray-700 fw-bolder bg-light-warning");
+                $('td', row).eq(1).addClass("text-gray-700 fw-bolder bg-light-success");
+                $('td', row).eq(2).addClass("text-gray-700 fw-bolder ");
+                $('td', row).eq(3).addClass("text-gray-700 fw-bolder ");
+                $('td', row).eq(4).addClass("text-gray-700 fw-bolder ");
+                $('td', row).eq(5).addClass("text-gray-700 fw-bolder ");
+                $('td', row).eq(6).addClass("text-gray-700 fw-bolder ");
+                $('td', row).eq(7).addClass("text-gray-700 fw-bolder ");
 
             },
 
@@ -206,33 +214,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();
         }, 1000);
 
-        $('#Tabla_Cargas tbody').on('click', 'td.btn_subir', function(e) {
-            e.preventDefault();
-            var data = tabla.row(this).data();
-            console.log('data: ', data);
-            Limpiar();
-            $('#MODAL_AGREGAR').modal('show');
-            $("#D_PROVEEDOR").text(data["proveedor"]);
-            $("#D_DESCRIPCION").text(data["descripcion"]);
-            $("#VL_AGENTE_DE_CARGA").val(data["agente_carga"]);
-            $("#VL_TIPO_CARGA").val(data["tipo_carga"]);
-            $("#VL_LIQUIDACION").val(formatter.format(data["liquidacion"]).split("$")[1]);
-            $("#VL_FECHA_TRANSFERENCIA").val(data["fecha_trans"]);
-            $("#VL_FECHA_HABIL").val(data["fecha_habil"]);
-            $("#VL_ORDEN").val(data["orden"]);
-            $("#VL_FECHA_BODEGA").val(data["fecha_bodega"]);
-            $("#VL_OBSERVACION").val(data["observacion"]);
-            // if (data["pedido_id"] != "" || data["pedido_id"] != null) {
-            //     $("#Factura").val(data["pedido_id"]);
-            //     $("#BTN_BUSCAR_IMP").click()
-            // }
-            if (data["liquidacion_id"] != "" || data["liquidacion_id"] != null) {
-                $("#liquidacion").val(data["liquidacion_id"]);
-                $("#BTN_BUSCAR_LIQ").click()
-            }
-            ID_CARGA = data["ID"];
-            // Tabla_Nueva_info([data]);
-        });
+
     }
 
     function Mensaje(texto1, texto2, icon) {
