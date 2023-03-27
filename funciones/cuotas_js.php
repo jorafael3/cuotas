@@ -101,6 +101,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             console.log('data: ', data);
             ARRAY_LISTA_PRODUCTOS.push(data);
             console.log('ARRAY_LISTA_PRODUCTOS: ', ARRAY_LISTA_PRODUCTOS);
+            Footer();
             Tabla_LISTA(ARRAY_LISTA_PRODUCTOS);
         });
     }
@@ -137,6 +138,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
                 className: 'btn btn-light-success',
                 action: function(e, dt, node, config) {
                     ARRAY_LISTA_PRODUCTOS = [];
+                    Footer();
                     Tabla_LISTA(ARRAY_LISTA_PRODUCTOS);
                 }
             }],
@@ -270,6 +272,24 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             texto2,
             icon
         )
+    }
+
+    function Footer(){
+        let fo = `
+        <tfoot align="center">
+                        <tr>
+                            <th style="font-size: 16px;" class="fw-bold fs-1"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-1"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                        </tr>
+                    </tfoot>
+        `;
+        $("#Tabla_Deudas").append(fo);
     }
 
     function AjaxSendReceiveData(url, data, callback) {
