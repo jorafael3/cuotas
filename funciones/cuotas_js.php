@@ -99,7 +99,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             e.preventDefault();
             var data = tabla.row(this).data();
             console.log('data: ', data);
-            ARRAY_LISTA_PRODUCTOS.append(data);
+            ARRAY_LISTA_PRODUCTOS.push(data);
             console.log('ARRAY_LISTA_PRODUCTOS: ', ARRAY_LISTA_PRODUCTOS);
             Tabla_LISTA(ARRAY_LISTA_PRODUCTOS);
         });
