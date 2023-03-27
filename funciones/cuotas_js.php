@@ -53,7 +53,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             destroy: true,
             data: datos,
             dom: 'frtip',
-            scrollY: '50vh',
+            scrollY: '45vh',
             scrollCollapse: true,
             paging: true,
             order: [
