@@ -134,7 +134,15 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             order: [
                 [0, "desc"]
             ],
-            buttons: ['print', 'excel', {
+            buttons: [{
+                extend: "excel",
+                title: "Cotizacion",
+                footer:true
+            },{
+                extend: "print",
+                title: "Cotizacion",
+                footer:true
+            }, {
                 text: `<span class"fw-bolder">Limpiar Tabla </span> <i class="bi bi-arrow-clockwise"></i>`,
                 className: 'btn btn-light-success',
                 action: function(e, dt, node, config) {
@@ -275,7 +283,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
         )
     }
 
-    function Footer(){
+    function Footer() {
         let fo = `
         <tfoot align="center">
                         <tr>
