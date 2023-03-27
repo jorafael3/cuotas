@@ -328,6 +328,8 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
                             <th style="font-size: 16px;" class="fw-bold fs-2"></th>
                             <th style="font-size: 16px;" class="fw-bold fs-2"></th>
                             <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+
                         </tr>
                     </tfoot>
         `;
