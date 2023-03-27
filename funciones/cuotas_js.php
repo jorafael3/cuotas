@@ -35,6 +35,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
     }
 
     function Tabla_productos(datos) {
+        $('#Tabla_Proveedores').empty();
         if ($.fn.dataTable.isDataTable('#Tabla_Proveedores')) {
             $('#Tabla_Proveedores').DataTable().destroy();
             $('#Tabla_Proveedores').empty();
@@ -46,7 +47,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             dom: 'frtip',
             scrollY: '50vh',
             scrollCollapse: true,
-            paging: false,
+            paging: true,
             order: [
                 [0, "desc"]
             ],
@@ -137,11 +138,11 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
             buttons: [{
                 extend: "excel",
                 title: "Cotizacion",
-                footer:true
-            },{
+                footer: true
+            }, {
                 extend: "print",
                 title: "Cotizacion",
-                footer:true
+                footer: true
             }, {
                 text: `<span class"fw-bolder">Limpiar Tabla </span> <i class="bi bi-arrow-clockwise"></i>`,
                 className: 'btn btn-light-success',
