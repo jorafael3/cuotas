@@ -255,7 +255,7 @@ $url_Buscar_Producto = constant('URL') . 'principal/Buscar_Producto/';
                 $(api.column(7).footer()).html(formatter.format(c24));
                 //$(api.column(3).footer()).html(format(wedTotal));
             }
-        }).clear().rows.add(datos).draw();
+        });
 
         setTimeout(function() {
             $($.fn.dataTable.tables(true)).DataTable().columns.adjust().draw();
