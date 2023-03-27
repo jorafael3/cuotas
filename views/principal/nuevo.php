@@ -54,6 +54,7 @@ require 'views/header.php';
                             <th style="font-size: 16px;" class="fw-bold fs-2"></th>
                             <th style="font-size: 16px;" class="fw-bold fs-2"></th>
                             <th style="font-size: 16px;" class="fw-bold fs-2"></th>
+                            <th style="font-size: 16px;" class="fw-bold fs-2"></th>
                         </tr>
                     </tfoot>
                 </table>
