@@ -7,7 +7,7 @@ require 'views/header.php';
     <div class="card bg-light shadow-sm">
         <div class="card-header">
             <h3 class="card-title align-items-start flex-column">
-                <span class="card-label fw-bold text-dark">Credito</span>
+                <span class="card-label fw-bold text-dark">Cotizador</span>
             </h3>
             <div class="card-toolbar">
 
